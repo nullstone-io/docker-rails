@@ -2,6 +2,9 @@
 
 set -e
 
+# Remove puma.pid so that a docker restart doesn't prevent puma from starting
+rm -f /var/run/puma.pid
+
 # Install packages on boot if set (usually used for local development)
 if [ -n "${INSTALL_PACKAGES_ON_BOOT}" ]; then
   echo "Installing packages..."

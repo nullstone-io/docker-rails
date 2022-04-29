@@ -20,16 +20,15 @@ RUN chmod +x docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
 # Configure Rails app
+RUN mkdir -p /usr/local/bundle
 RUN mkdir -p /var/run/
-RUN touch /var/run/puma.pid
 WORKDIR /app
 
-# Configure build steps for child image
-ONBUILD ENV PIDFILE /var/run/puma.pid
-ONBUILD ENV PORT 9000
-ONBUILD ENV RAILS_LOG_TO_STDOUT true
-ONBUILD COPY . .
-ONBUILD RUN gem install bundler && bundle install
+# Configure default environment setup
+ENV PIDFILE /var/run/puma.pid
+ENV PORT 9000
+ENV RAILS_LOG_TO_STDOUT true
+ENV BUNDLE_PATH /usr/local/bundle
 
 EXPOSE 9000
-CMD bundle exec rails server
+CMD bundle exec rails server -b 0.0.0.0

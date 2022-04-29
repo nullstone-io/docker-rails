@@ -1,6 +1,12 @@
 ARG RUBY_VERSION
 FROM ruby:${RUBY_VERSION}-alpine
 
+RUN apk add --no-cache --update \
+    build-base \
+    postgresql-client \
+    postgresql-dev \
+    tzdata
+
 VOLUME /etc/nginx/conf.d
 VOLUME /etc/nginx/templates
 VOLUME /app/public

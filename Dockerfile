@@ -14,7 +14,8 @@ RUN chmod +x docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
 # Configure Rails app
-RUN mkdir -p /var/run/puma.pid
+RUN mkdir -p /var/run/
+RUN touch /var/run/puma.pid
 ONBUILD ENV PIDFILE /var/run/puma.pid
 ONBUILD ENV PORT 9000
 ONBUILD ENV RAILS_LOG_TO_STDOUT true

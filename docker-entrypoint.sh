@@ -3,13 +3,13 @@
 set -e
 
 # Install packages on boot if set (usually used for local development)
-if [ -z "${INSTALL_PACKAGES_ON_BOOT}" ]; then
+if [ -n "${INSTALL_PACKAGES_ON_BOOT}" ]; then
   echo "Installing packages..."
   bundle check || bundle install
 fi
 
 # Configure DATABASE_URL if POSTGRES_URL is set
-if [ -z "${POSTGRES_URL}" ]; then
+if [ -n "${POSTGRES_URL}" ]; then
   echo "Setting DB_ADAPTER=postgresql"
   export DB_ADAPTER=postgresql
   echo "Configuring DATABASE_URL using POSTGRES_URL"
@@ -17,7 +17,7 @@ if [ -z "${POSTGRES_URL}" ]; then
 fi
 
 # Configure DATABASE_URL if MYSQL_URL is set
-if [ -z "${MYSQL_URL}" ]; then
+if [ -n "${MYSQL_URL}" ]; then
   echo "Setting DB_ADAPTER=mysql2"
   export DB_ADAPTER=mysql2
   echo "Configuring DATABASE_URL using MYSQL_URL"

@@ -22,10 +22,12 @@ ENTRYPOINT ["/docker-entrypoint.sh"]
 # Configure Rails app
 RUN mkdir -p /var/run/
 RUN touch /var/run/puma.pid
+WORKDIR /app
+
+# Configure build steps for child image
 ONBUILD ENV PIDFILE /var/run/puma.pid
 ONBUILD ENV PORT 9000
 ONBUILD ENV RAILS_LOG_TO_STDOUT true
-ONBUILD WORKDIR /app
 ONBUILD COPY . .
 ONBUILD RUN gem install bundler && bundle install
 

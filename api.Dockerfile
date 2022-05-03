@@ -11,9 +11,9 @@ RUN apk add --no-cache --update \
 
 # Set up entrypoint
 WORKDIR /
-COPY docker-entrypoint.sh .
-RUN chmod +x docker-entrypoint.sh
-ENTRYPOINT ["/docker-entrypoint.sh"]
+COPY entrypoint.sh .
+RUN chmod +x entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
 
 # Set up bundle path
 RUN mkdir -p /usr/local/bundle

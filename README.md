@@ -3,20 +3,50 @@
 Rails Base Image that is optimized for production and configured to operate locally the same way.
 This image is very opinionated; however, not restrictive.
 
-This image is configured with:
+## Quick Reference
+
+- Maintained by
+  [Nullstone](https://nullstone.io)
+- Where to get help
+  [Nullstone Slack](https://join.slack.com/t/nullstone-community/signup)
+
+## Supported Tags and respective `Dockerfile` links
+
+- [latest, ruby3, ruby3.1](3.1/Dockerfile)
+- [webapp, webapp-ruby3, webapp-ruby3.1](3.1/webapp/Dockerfile)
+- [ruby3.0](3.0/Dockerfile)
+- [webapp-ruby3.0](3.0/webapp/Dockerfile)
+
+## Variants
+
+This repository builds 2 variants of images: a base image and a webapp image.
+
+The base image configures:
 - Server optimized for puma.
-- Static assets and files are automatically added using `ONBUILD` during your docker build process.
-- When making code changes, no need to rebuild/restart your container.
-- Logs are emitted to stdout/stderr.
-- The resulting image is small (~37mb).
-- Preconfigured to attach [nginx](https://www.nginx.com/) sidecar container. See below.
+- When making code changes locally, there is no need to rebuild/restart your container.
+- Logs are emitted to stdout.
+- Sets `PORT` env var to `80`
+- On boot, `POSTGRES_URL` sets `DB_ADAPTER=postgresql`, `DATABASE_URL=$POSTGRES_URL`
+- On boot, `MYSQL_URL` sets `DB_ADAPTER=mysql`, `DATABASE_URL=$MYSQL_URL`
+
+The webapp image additionally configures:
+- Preconfigures the image to attach [nginx](https://www.nginx.com/) sidecar container. See below.
+- Changes `PORT` env var to `9000` to allow nginx to use port `80`
 
 ## Nginx sidecar
 
-This image is configured to easily connect a sidecar container running nginx.
-By doing so, nginx can serve static assets with php requests forwarded to this container.
+This image is configured to optionally connect sidecar container running nginx.
+This pattern allows you to use nginx to serve static assets while the rails server serves dynamic requests.
 
-There are 3 volumes exposed in this image that are shared with the nginx sidecar.
-These volumes automatically configure nginx to serve static assets and php properly.
+- Local Working Example: [examples/webapp/docker-compose.yml](examples/webapp/docker-compose.yml)
+- Fargate Service (via Nullstone): [nullstone/aws-fargate-nginx-sidecar](https://app.nullstone.io/orgs/BSick7/registry/modules/nullstone/aws-fargate-nginx-sidecar)
 
-See [examples/basic/docker-compose.yml](examples/basic/docker-compose.yml) for working example for local development.
+### Static Assets
+
+Make sure to place all static content into `/app/public` inside the container.
+With a typical rails setup, this is done with the following in `Dockerfile`.
+```
+COPY . . # copies all rails code including `./public` into `/app`
+RUN bundle exec rake assets:precompile
+RUN bundle exec rake assets:clean
+```

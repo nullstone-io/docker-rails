@@ -5,6 +5,11 @@ upstream app {
   server ${WEBAPP_ADDR} fail_timeout=0;
 }
 
+map $http_upgrade $connection_upgrade {
+    default upgrade;
+    ''      close;
+}
+
 server {
   listen 80 default;
   root /app/public;

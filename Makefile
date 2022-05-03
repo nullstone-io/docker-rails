@@ -12,3 +12,16 @@ tags:
 	docker tag nullstone/rails:ruby3.1 nullstone/rails
 	docker tag nullstone/rails:webapp-ruby3.1 nullstone/rails:webapp-ruby3
 	docker tag nullstone/rails:webapp-ruby3.1 nullstone/rails:webapp
+
+push:
+	docker push nullstone/rails:ruby3.0
+
+	docker push nullstone/rails:webapp-ruby3.0
+
+	docker push nullstone/rails:ruby3.1
+	docker push nullstone/rails:ruby3
+	docker push nullstone/rails
+
+	docker push nullstone/rails:webapp-ruby3.1
+	docker push nullstone/rails:webapp-ruby3
+	docker push nullstone/rails:webapp

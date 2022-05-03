@@ -5,12 +5,6 @@ set -e
 # Remove puma.pid so that a docker restart doesn't prevent puma from starting
 rm -f /var/run/puma.pid
 
-# Install packages on boot if set (usually used for local development)
-if [ -n "${INSTALL_PACKAGES_ON_BOOT}" ]; then
-  echo "Installing packages..."
-  bundle check || bundle install
-fi
-
 # Configure DATABASE_URL if POSTGRES_URL is set
 if [ -n "${POSTGRES_URL}" ]; then
   echo "Setting DB_ADAPTER=postgresql"

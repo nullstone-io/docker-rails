@@ -1,7 +1,6 @@
 # syntax=docker/dockerfile:1
 
-ARG RUBY_VERSION
-FROM ruby:${RUBY_VERSION}-alpine
+FROM ruby:3.0-alpine
 
 RUN apk add --no-cache --update \
     build-base \

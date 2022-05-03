@@ -33,7 +33,8 @@ ENV PIDFILE /var/run/puma.pid
 WORKDIR /app
 ENV RAILS_LOG_TO_STDOUT true
 
+ENV BINDING 0.0.0.0
 ENV PORT 9000
 EXPOSE 9000
 
-CMD bundle exec rails server -b 0.0.0.0
+CMD bundle exec rails server

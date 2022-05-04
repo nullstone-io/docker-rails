@@ -31,7 +31,7 @@ The base image configures:
 
 The webapp image additionally configures:
 - Preconfigures the image to attach [nginx](https://www.nginx.com/) sidecar container. See below.
-- Changes `PORT` env var to `3000` to allow nginx to use port `80`
+- Changes `PORT` env var to `9000` to allow nginx to use port `80`
 
 ## Nginx sidecar
 

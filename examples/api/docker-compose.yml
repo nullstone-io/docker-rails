@@ -2,13 +2,15 @@ version: "3.8"
 
 services:
   app:
-    build:
-      context: .
-      dockerfile: local.Dockerfile
+    image: nullstone/rails
+    entrypoint: /local.entrypoint.sh
+    command: bundle exec rails server
     volumes:
       - .:/app
+      - gem-cache:/usr/local/bundle
     environment:
       - NULLSTONE_ENV=local
+      - RAILS_ENV=development
       - POSTGRES_URL=postgres://acme:acme@db:5432/acme
     depends_on:
       - db
@@ -21,3 +23,6 @@ services:
       - POSTGRES_USER=acme
       - POSTGRES_PASSWORD=acme
       - POSTGRES_DB=acme
+
+volumes:
+  gem-cache:

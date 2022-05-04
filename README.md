@@ -35,10 +35,14 @@ The webapp image additionally configures:
 
 ## Nginx sidecar
 
-This image is configured to optionally connect sidecar container running nginx.
+The webapp image is configured to optionally connect sidecar container running nginx.
 This pattern allows you to use nginx to serve static assets while the rails server serves dynamic requests.
 
-- Local Working Example: [examples/webapp/docker-compose.yml](examples/webapp/docker-compose.yml)
+#### docker-compose
+See [examples/webapp/prod.docker-compose.yml](examples/webapp/prod.docker-compose.yml) for a docker compose that mimics a production environment.
+
+#### Nullstone
+The following Nullstones modules provide one-click addition of an nginx sidecar:
 - Fargate Service (via Nullstone): [nullstone/aws-fargate-nginx-sidecar](https://app.nullstone.io/orgs/BSick7/registry/modules/nullstone/aws-fargate-nginx-sidecar)
 
 ### Static Assets
@@ -46,6 +50,7 @@ This pattern allows you to use nginx to serve static assets while the rails serv
 Make sure to place all static content into `/app/public` inside the container.
 With a typical rails setup, this is done with the following in `Dockerfile`.
 ```
+...
 COPY . . # copies all rails code including `./public` into `/app`
 RUN bundle exec rake assets:precompile
 RUN bundle exec rake assets:clean

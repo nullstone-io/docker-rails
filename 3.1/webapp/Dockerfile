@@ -18,7 +18,9 @@ COPY etc/ /etc/
 # Set up entrypoint
 WORKDIR /
 COPY entrypoint.sh .
+COPY local.entrypoint.sh .
 RUN chmod +x entrypoint.sh
+RUN chmod +x local.entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
 # Set up bundle path

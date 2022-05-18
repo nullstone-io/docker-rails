@@ -2,15 +2,12 @@ version: "3.8"
 
 services:
   app:
-    image: nullstone/rails:webapp
-    entrypoint: /local.entrypoint.sh
-    command: bundle exec rails server
+    image: nullstone/rails:webapp-local
     volumes:
       - .:/app
-      - gem-cache:/usr/local/bundle
+      - gems:/usr/local/bundle
     environment:
       - NULLSTONE_ENV=local
-      - RAILS_ENV=development
       - POSTGRES_URL=postgres://acme:acme@db:5432/acme
     depends_on:
       - db
@@ -25,4 +22,4 @@ services:
       - POSTGRES_DB=acme
 
 volumes:
-  gem-cache:
+  gems: {}

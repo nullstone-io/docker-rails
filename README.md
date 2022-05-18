@@ -12,12 +12,24 @@ This image is very opinionated; however, not restrictive.
 
 ## Supported Tags and respective `Dockerfile` links
 
-- [latest, ruby3, ruby3.1](3.1/Dockerfile)
-- [webapp, webapp-ruby3, webapp-ruby3.1](3.1/webapp/Dockerfile)
-- [ruby3.0](3.0/Dockerfile)
-- [webapp-ruby3.0](3.0/webapp/Dockerfile)
+- [latest, ruby3, ruby3.1](Dockerfile)
+- [local, ruby3-local, ruby3.1-local](local.Dockerfile)
+- [webapp, webapp-ruby3, webapp-ruby3.1](webapp/Dockerfile)
+- [webapp-local, webapp-ruby3-local, webapp-ruby3.1-local](webapp/local.Dockerfile)
+- [ruby3.0](Dockerfile)
+- [ruby3.0-local](local.Dockerfile)
+- [webapp-ruby3.0](webapp/Dockerfile)
+- [webapp-ruby3.0-local](webapp/local.Dockerfile)
 
-## Variants
+## Production vs Local
+
+This repository builds an image for local use and production use.
+
+The local image configures:
+- Sets the environment variable `RAILS_ENV=development`
+- On boot, the image runs `bundle install` (means you only need to restart the docker container when updating `Gemfile`)
+
+## Base image vs webapp image 
 
 This repository builds 2 variants of images: a base image and a webapp image.
 

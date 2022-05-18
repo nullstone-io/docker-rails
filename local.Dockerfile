@@ -1,6 +1,7 @@
 # syntax=docker/dockerfile:1
 
-FROM ruby:3.1-alpine
+ARG RUBY_VERSION=3.1
+FROM ruby:${RUBY_VERSION}-alpine
 
 RUN apk add --no-cache --update \
     build-base \
@@ -10,11 +11,9 @@ RUN apk add --no-cache --update \
 
 # Set up entrypoint
 WORKDIR /
-COPY entrypoint.sh .
 COPY local.entrypoint.sh .
-RUN chmod +x entrypoint.sh
 RUN chmod +x local.entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/local.entrypoint.sh"]
 
 # Set up bundle path
 RUN mkdir -p /usr/local/bundle
@@ -26,6 +25,7 @@ ENV PIDFILE /var/run/puma.pid
 
 # Configure default environment setup
 WORKDIR /app
+ENV RAILS_ENV development
 ENV RAILS_LOG_TO_STDOUT true
 
 ENV BINDING 0.0.0.0

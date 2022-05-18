@@ -32,4 +32,4 @@ ENV BINDING 0.0.0.0
 ENV PORT 80
 EXPOSE 80
 
-CMD bundle exec rails server
+CMD ["bundle", "exec", "rails", "server"]

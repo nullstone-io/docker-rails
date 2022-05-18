@@ -39,4 +39,4 @@ ENV BINDING 0.0.0.0
 ENV PORT 9000
 EXPOSE 9000
 
-CMD bundle exec rails server
+CMD ["bundle", "exec", "rails", "server"]

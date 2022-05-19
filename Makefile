@@ -1,14 +1,14 @@
 build:
 	# Ruby 3.0
-	docker build --build-arg=3.0 -f Dockerfile              -t nullstone/rails:ruby3.0               .
-	docker build --build-arg=3.0 -f local.Dockerfile        -t nullstone/rails:ruby3.0-local         .
-	docker build --build-arg=3.0 -f webapp/Dockerfile       -t nullstone/rails:webapp-ruby3.0        .
-	docker build --build-arg=3.0 -f webapp/local.Dockerfile -t nullstone/rails:webapp-ruby3.0-local  .
+	docker build --build-arg RUBY_VERSION=3.0 -f Dockerfile              -t nullstone/rails:ruby3.0               .
+	docker build --build-arg RUBY_VERSION=3.0 -f local.Dockerfile        -t nullstone/rails:ruby3.0-local         .
+	docker build --build-arg RUBY_VERSION=3.0 -f webapp/Dockerfile       -t nullstone/rails:webapp-ruby3.0        .
+	docker build --build-arg RUBY_VERSION=3.0 -f webapp/local.Dockerfile -t nullstone/rails:webapp-ruby3.0-local  .
 	# Ruby 3.1
-	docker build --build-arg=3.1 -f Dockerfile              -t nullstone/rails:ruby3.1               .
-	docker build --build-arg=3.1 -f local.Dockerfile        -t nullstone/rails:ruby3.1-local         .
-	docker build --build-arg=3.1 -f webapp/Dockerfile       -t nullstone/rails:webapp-ruby3.1        .
-	docker build --build-arg=3.1 -f webapp/local.Dockerfile -t nullstone/rails:webapp-ruby3.1-local  .
+	docker build --build-arg RUBY_VERSION=3.1 -f Dockerfile              -t nullstone/rails:ruby3.1               .
+	docker build --build-arg RUBY_VERSION=3.1 -f local.Dockerfile        -t nullstone/rails:ruby3.1-local         .
+	docker build --build-arg RUBY_VERSION=3.1 -f webapp/Dockerfile       -t nullstone/rails:webapp-ruby3.1        .
+	docker build --build-arg RUBY_VERSION=3.1 -f webapp/local.Dockerfile -t nullstone/rails:webapp-ruby3.1-local  .
 
 tags:
 	# Ruby 3

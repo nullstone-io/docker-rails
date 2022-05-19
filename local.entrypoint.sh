@@ -7,6 +7,15 @@ gem install bundler
 echo "Verifying and installing gems..."
 bundle check || bundle install
 
+if [ -f "yarn.lock" ]; then
+    echo "Installing yarn dependencies..."
+    yarn install
+fi
+if [ -f "package-lock.json" ]; then
+    echo "Installing npm dependencies..."
+    npm install
+fi
+
 # Remove puma.pid so that a docker restart doesn't prevent puma from starting
 rm -f /var/run/puma.pid
 

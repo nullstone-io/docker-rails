@@ -25,6 +25,7 @@ ENV PIDFILE /var/run/puma.pid
 
 # Configure default environment setup
 WORKDIR /app
+ENV RAILS_ENV production
 ENV RAILS_LOG_TO_STDOUT true
 
 ENV BINDING 0.0.0.0

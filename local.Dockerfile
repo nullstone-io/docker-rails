@@ -7,6 +7,8 @@ RUN apk add --no-cache --update \
     build-base \
     postgresql-client \
     postgresql-dev \
+    mysql-client \
+    libmysqlclient-dev \
     tzdata
 
 # Set up entrypoint

@@ -12,10 +12,10 @@ This image is very opinionated; however, not restrictive.
 
 ## Supported Tags and respective `Dockerfile` links
 
-- [latest, ruby3, ruby3.1](Dockerfile)
-- [local, ruby3-local, ruby3.1-local](local.Dockerfile)
-- [webapp, ruby3-webapp, ruby3.1-webapp](webapp/Dockerfile)
-- [webapp-local, ruby3-webapp-local, ruby3.1-webapp-local](webapp/local.Dockerfile)
+- [ruby3.1, ruby3, latest](Dockerfile)
+- [ruby3.1-local, ruby3-local, local](local.Dockerfile)
+- [ruby3.1-webapp, ruby3-webapp, webapp](webapp/Dockerfile)
+- [ruby3.1-webapp-local, ruby3-webapp-local, webapp-local](webapp/local.Dockerfile)
 - [ruby3.0](Dockerfile)
 - [ruby3.0-local](local.Dockerfile)
 - [ruby3.0-webapp](webapp/Dockerfile)

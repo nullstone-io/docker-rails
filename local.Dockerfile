@@ -7,9 +7,6 @@ RUN apk add --no-cache --update \
     build-base \
     postgresql-client \
     postgresql-dev \
-    mysql-client \
-    mariadb-dev \
-    openssl \
     tzdata
 
 # Set up entrypoint

@@ -14,12 +14,12 @@ This image is very opinionated; however, not restrictive.
 
 - [latest, ruby3, ruby3.1](Dockerfile)
 - [local, ruby3-local, ruby3.1-local](local.Dockerfile)
-- [webapp, webapp-ruby3, webapp-ruby3.1](webapp/Dockerfile)
-- [webapp-local, webapp-ruby3-local, webapp-ruby3.1-local](webapp/local.Dockerfile)
+- [webapp, ruby3-webapp, ruby3.1-webapp](webapp/Dockerfile)
+- [webapp-local, ruby3-webapp-local, ruby3.1-webapp-local](webapp/local.Dockerfile)
 - [ruby3.0](Dockerfile)
 - [ruby3.0-local](local.Dockerfile)
-- [webapp-ruby3.0](webapp/Dockerfile)
-- [webapp-ruby3.0-local](webapp/local.Dockerfile)
+- [ruby3.0-webapp](webapp/Dockerfile)
+- [ruby3.0-webapp-local](webapp/local.Dockerfile)
 
 ## Production vs Local
 

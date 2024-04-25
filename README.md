@@ -12,12 +12,18 @@ This image is very opinionated; however, not restrictive.
 
 ## Supported Tags and respective `Dockerfile` links
 
-### Ruby 3.2
-- [ruby3.2, ruby3, latest](Dockerfile)
-- [ruby3.2-local, ruby3-local, local](local.Dockerfile)
-- [ruby3.2-webapp, ruby3-webapp, webapp](webapp/Dockerfile)
-- [ruby3.2-webapp-local, ruby3-webapp-local, webapp-local](webapp/local.Dockerfile)
+### Ruby 3.3
+- [ruby3.3, ruby3, latest](Dockerfile)
+- [ruby3.3-local, ruby3-local, local](local.Dockerfile)
+- [ruby3.3-webapp, ruby3-webapp, webapp](webapp/Dockerfile)
+- [ruby3.3-webapp-local, ruby3-webapp-local, webapp-local](webapp/local.Dockerfile)
 
+### Ruby 3.2
+- [ruby3.2](Dockerfile)
+- [ruby3.2-local](local.Dockerfile)
+- [ruby3.2-webapp](webapp/Dockerfile)
+- [ruby3.2-webapp-local](webapp/local.Dockerfile)
+- 
 ### Ruby 3.1
 - [ruby3.1](Dockerfile)
 - [ruby3.1-local](local.Dockerfile)

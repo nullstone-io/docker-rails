@@ -64,7 +64,7 @@ target "ruby3-3-webapp" {
 }
 
 target "ruby3-3-webapp-local" {
-  dockerfile = "webapp/Dockerfile"
+  dockerfile = "webapp/local.Dockerfile"
   tags = [
     "nullstone/rails:ruby3.3-webapp-local",
     "nullstone/rails:ruby3-webapp-local",
@@ -109,7 +109,7 @@ target "ruby3-2-webapp" {
 }
 
 target "ruby3-2-webapp-local" {
-  dockerfile = "webapp/Dockerfile"
+  dockerfile = "webapp/local.Dockerfile"
   tags = ["nullstone/rails:ruby3.2-webapp-local"]
   args = {
     "RUBY_VERSION" = "3.2"
@@ -156,7 +156,7 @@ target "ruby3-1-webapp" {
 }
 
 target "ruby3-1-webapp-local" {
-  dockerfile = "webapp/Dockerfile"
+  dockerfile = "webapp/local.Dockerfile"
   tags = [
     "nullstone/rails:ruby3.1-webapp-local",
   ]

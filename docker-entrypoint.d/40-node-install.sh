@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -ex
+set -e
 
 if [ "${NULLSTONE_ENV}" = "local" ]; then
   if [ -f "yarn.lock" ]; then

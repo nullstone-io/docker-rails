@@ -6,7 +6,8 @@ RUN apk add --no-cache --update \
     postgresql-client \
     postgresql-dev \
     nodejs yarn \
-    tzdata
+    tzdata \
+    bash
 
 VOLUME /etc/nginx/conf.d
 VOLUME /etc/nginx/templates
@@ -26,7 +27,7 @@ RUN chmod +x /docker-entrypoint.d/*.sh
 # Set up bundler
 RUN mkdir -p /usr/local/bundle
 ENV BUNDLE_PATH=/usr/local/bundle
-RUN gem install bundler
+RUN gem install bundler || gem install bundler -v 2.4.22 # This fallback supports older versions of ruby/bundler
 
 # Set up pid file
 RUN mkdir -p /var/run/

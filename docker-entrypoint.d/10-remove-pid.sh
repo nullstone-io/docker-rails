@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -ex
+set -e
 
 echo "Removing pid file"
 rm -f "${PIDFILE}"

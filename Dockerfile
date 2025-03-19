@@ -5,7 +5,8 @@ RUN apk add --no-cache --update \
     build-base \
     postgresql-client \
     postgresql-dev \
-    tzdata
+    tzdata \
+    bash
 
 # Set up entrypoint
 WORKDIR /
@@ -19,7 +20,7 @@ RUN chmod +x /docker-entrypoint.d/*.sh
 # Set up bundler
 RUN mkdir -p /usr/local/bundle
 ENV BUNDLE_PATH=/usr/local/bundle
-RUN gem install bundler
+RUN gem install bundler || gem install bundler -v 2.4.22 # This fallback supports older versions of ruby/bundler
 
 # Set up pid file
 RUN mkdir -p /var/run/

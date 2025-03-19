@@ -23,9 +23,10 @@ WORKDIR /docker-entrypoint.d
 COPY docker-entrypoint.d/*.sh .
 RUN chmod +x /docker-entrypoint.d/*.sh
 
-# Set up bundle path
+# Set up bundler
 RUN mkdir -p /usr/local/bundle
 ENV BUNDLE_PATH=/usr/local/bundle
+RUN gem install bundler
 
 # Set up pid file
 RUN mkdir -p /var/run/

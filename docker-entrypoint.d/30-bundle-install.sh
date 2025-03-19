@@ -3,9 +3,6 @@
 set -ex
 
 if [ "${NULLSTONE_ENV}" = "local" ]; then
-  echo "Installing bundler..."
-  gem install bundler
-
   echo "Verifying and installing gems..."
   bundle check || bundle install
 else

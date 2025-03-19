@@ -14,33 +14,23 @@ This image is very opinionated; however, not restrictive.
 
 ### Ruby 3.3
 - [ruby3.3, ruby3, latest](Dockerfile)
-- [ruby3.3-local, ruby3-local, local](local.Dockerfile)
 - [ruby3.3-webapp, ruby3-webapp, webapp](webapp/Dockerfile)
-- [ruby3.3-webapp-local, ruby3-webapp-local, webapp-local](webapp/local.Dockerfile)
 
 ### Ruby 3.2
 - [ruby3.2](Dockerfile)
-- [ruby3.2-local](local.Dockerfile)
 - [ruby3.2-webapp](webapp/Dockerfile)
-- [ruby3.2-webapp-local](webapp/local.Dockerfile)
 - 
 ### Ruby 3.1
 - [ruby3.1](Dockerfile)
-- [ruby3.1-local](local.Dockerfile)
 - [ruby3.1-webapp](webapp/Dockerfile)
-- [ruby3.1-webapp-local](webapp/local.Dockerfile)
 
 ### Ruby 3.0
 - [ruby3.0](Dockerfile)
-- [ruby3.0-local](local.Dockerfile)
 - [ruby3.0-webapp](webapp/Dockerfile)
-- [ruby3.0-webapp-local](webapp/local.Dockerfile)
 
 ### Ruby 2.7
 - [ruby2.7](Dockerfile)
-- [ruby2.7-local](local.Dockerfile)
 - [ruby2.7-webapp](webapp/Dockerfile)
-- [ruby2.7-webapp-local](webapp/local.Dockerfile)
 
 ## Production vs Local
 

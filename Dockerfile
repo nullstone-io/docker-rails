@@ -1,5 +1,3 @@
-# syntax=docker/dockerfile:1
-
 ARG RUBY_VERSION=3.3
 FROM ruby:${RUBY_VERSION}-alpine
 
@@ -11,9 +9,12 @@ RUN apk add --no-cache --update \
 
 # Set up entrypoint
 WORKDIR /
-COPY entrypoint.sh .
-RUN chmod +x entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+COPY docker-entrypoint.sh .
+RUN chmod +x /docker-entrypoint.sh
+ENTRYPOINT ["/docker-entrypoint.sh"]
+WORKDIR /docker-entrypoint.d
+COPY docker-entrypoint.d/*.sh .
+RUN chmod +x /docker-entrypoint.d/*.sh
 
 # Set up bundle path
 RUN mkdir -p /usr/local/bundle

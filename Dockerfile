@@ -5,8 +5,9 @@ RUN apk add --no-cache --update \
     build-base \
     postgresql-client \
     postgresql-dev \
+    git \
     tzdata \
-    bash
+    vim bash
 
 # Set up entrypoint
 WORKDIR /

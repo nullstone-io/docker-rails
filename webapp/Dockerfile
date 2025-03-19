@@ -5,9 +5,10 @@ RUN apk add --no-cache --update \
     build-base \
     postgresql-client \
     postgresql-dev \
-    nodejs yarn \
+    git \
+    nodejs npm yarn \
     tzdata \
-    bash
+    vim bash
 
 VOLUME /etc/nginx/conf.d
 VOLUME /etc/nginx/templates

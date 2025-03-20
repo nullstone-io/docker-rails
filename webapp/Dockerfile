@@ -22,7 +22,10 @@ COPY docker-entrypoint.sh .
 RUN chmod +x /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
 WORKDIR /docker-entrypoint.d
-COPY docker-entrypoint.d/*.sh .
+COPY docker-entrypoint.d/10-remove-pid.sh .
+COPY docker-entrypoint.d/20-database-url.sh .
+COPY docker-entrypoint.d/30-bundle-install.sh .
+COPY docker-entrypoint.d/40-node-install.sh .
 RUN chmod +x /docker-entrypoint.d/*.sh
 
 # Set up bundler

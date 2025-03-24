@@ -1,5 +1,14 @@
+RUBY_VERSIONS_FILE := ruby_versions.txt
+
+.PHONY: build
 build:
-	docker buildx bake
+	@while IFS= read -r version; do \
+		echo "Building for Ruby $$version..."; \
+		RUBY_VERSION=$$version docker buildx bake; \
+	done < $(RUBY_VERSIONS_FILE)
 
 push:
-	docker buildx bake --push
+	@while IFS= read -r version; do \
+		echo "Building and pushing for Ruby $$version..."; \
+		RUBY_VERSION=$$version docker buildx bake --push; \
+	done < $(RUBY_VERSIONS_FILE)

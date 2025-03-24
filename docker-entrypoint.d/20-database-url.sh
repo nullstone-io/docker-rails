@@ -2,23 +2,6 @@
 
 set -e
 
-echo "Installing bundler..."
-gem install bundler
-echo "Verifying and installing gems..."
-bundle check || bundle install
-
-if [ -f "yarn.lock" ]; then
-    echo "Installing yarn dependencies..."
-    yarn install
-fi
-if [ -f "package-lock.json" ]; then
-    echo "Installing npm dependencies..."
-    npm install
-fi
-
-# Remove puma.pid so that a docker restart doesn't prevent puma from starting
-rm -f /var/run/puma.pid
-
 # Configure DATABASE_URL if POSTGRES_URL is set
 if [ -n "${POSTGRES_URL}" ]; then
   echo "Setting DB_ADAPTER=postgresql"
@@ -34,5 +17,3 @@ if [ -n "${MYSQL_URL}" ]; then
   echo "Configuring DATABASE_URL using MYSQL_URL"
   export DATABASE_URL="${MYSQL_URL}"
 fi
-
-exec "$@"
